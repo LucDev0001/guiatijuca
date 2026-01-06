@@ -1,0 +1,26 @@
+{
+  "name": "Guia Digital da Tijuca",
+  "short_name": "TijucaGuia",
+  "description": "Encontre tudo o que precisa na Tijuca: comércios, serviços e profissionais locais.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1e3a8a",
+  "theme_color": "#1e3a8a",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/854/854878.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/854/854878.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["travel", "lifestyle", "utilities"],
+  "lang": "pt-BR"
+}

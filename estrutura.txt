@@ -1,0 +1,10 @@
+tijuca-Guia/
+├── index.html
+├── package.json
+└── src/
+    ├── config/          <-- Configurações (Firebase, etc.)
+    │   └── firebase.js
+    ├── styles/          <-- Estilos (Tailwind, CSS global)
+    │   └── index.css
+    ├── assets/          <-- Imagens, ícones, logos
+    └── main.js          <-- Ponto de entrada (Lógica principal)

@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+:root {
+  --tijuca-blue: #1e3a8a;
+  --tijuca-yellow: #facc15;
+}
+
+html,
+body,
+#app {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Impede rolagem dupla */
+}
+
+/* --- Acessibilidade --- */
+.high-contrast {
+  filter: contrast(150%);
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+.high-contrast * {
+  background-color: #000 !important;
+  color: #fff !important;
+  border-color: #fff !important;
+}
+
+.large-text {
+  font-size: 120% !important;
+}

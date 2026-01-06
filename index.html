@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO & Meta Tags -->
+    <title>Guia Digital da Tijuca | O que você procura está aqui</title>
+    <meta
+      name="description"
+      content="O guia definitivo do bairro da Tijuca, RJ. Encontre comércios, serviços, profissionais autônomos e dicas locais. Mapa interativo e atualizado pela comunidade."
+    />
+    <meta
+      name="keywords"
+      content="Tijuca, Rio de Janeiro, Guia Comercial, Mapa, Serviços, Lojas, Autônomos, Saens Peña, Uruguai"
+    />
+    <meta name="author" content="Guia Digital da Tijuca" />
+    <meta name="theme-color" content="#1e3a8a" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="tijucaguia.netlify.app" />
+    <meta property="og:title" content="Guia Digital da Tijuca" />
+    <meta
+      property="og:description"
+      content="Descubra o melhor da Tijuca. Mapa interativo com comércios e serviços locais."
+    />
+    <meta
+      property="og:image"
+      content="https://cdn-icons-png.flaticon.com/512/854/854878.png"
+    />
+
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json" />
+    <link
+      rel="apple-touch-icon"
+      href="https://cdn-icons-png.flaticon.com/512/854/854878.png"
+    />
+
+    <!-- Dados Estruturados (JSON-LD) para SEO Local -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Guia Digital da Tijuca",
+        "description": "O guia definitivo do bairro da Tijuca, RJ. Encontre comércios, serviços, profissionais autônomos e dicas locais em um mapa interativo.",
+        "url": "https://tijucaguia.netlify.app",
+        "image": "https://cdn-icons-png.flaticon.com/512/854/854878.png",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Tijuca",
+          "addressRegion": "Rio de Janeiro",
+          "addressCountry": "BR"
+        }
+      }
+    </script>
+
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXX"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body class="bg-gray-100 font-sans antialiased overflow-hidden">
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register("/sw.js");
+        });
+      }
+    </script>
+  </body>
+</html>
