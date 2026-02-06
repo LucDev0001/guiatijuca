@@ -12,6 +12,7 @@ import {
   doc,
   increment,
   getDoc,
+  onSnapshot,
 } from "firebase/firestore";
 import { signOut } from "firebase/auth";
 import { GoogleGenerativeAI } from "@google/generative-ai";
@@ -435,13 +436,13 @@ function setupMapEvents(currentUser) {
             b.classList.remove(
               "bg-gray-100",
               "dark:bg-gray-700",
-              "border-blue-500"
-            )
+              "border-blue-500",
+            ),
           );
         e.currentTarget.classList.add(
           "bg-gray-100",
           "dark:bg-gray-700",
-          "border-blue-500"
+          "border-blue-500",
         );
         selectedAlertType = e.currentTarget.dataset.type;
       };
@@ -514,7 +515,7 @@ function setupMapEvents(currentUser) {
               <span class="flex-1" onclick="document.getElementById('inputBusca').value='${item}'; aplicarFiltros();">${item}</span>
               <button onclick="window.removeRecent('${item}')" class="text-gray-400 hover:text-red-500 p-1 rounded-full hover:bg-gray-200 transition" title="Remover">✕</button>
             </div>
-          `
+          `,
             )
             .join("")
         : '<p class="text-gray-500 text-center mt-4">Nenhuma busca recente.</p>';
@@ -771,7 +772,7 @@ function setupMapEvents(currentUser) {
     // Simula dados semanais baseados no total (apenas visual para MVP)
     const days = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sab", "Dom"];
     const data = days.map(() =>
-      Math.floor(Math.random() * (totalVisits > 0 ? totalVisits : 5))
+      Math.floor(Math.random() * (totalVisits > 0 ? totalVisits : 5)),
     );
 
     chart.innerHTML = data
@@ -780,7 +781,7 @@ function setupMapEvents(currentUser) {
           <div class="flex-1 flex flex-col justify-end items-center group">
               <div class="w-full bg-blue-200 rounded-t hover:bg-blue-400 transition-all relative" style="height: ${Math.max(
                 10,
-                val * 5
+                val * 5,
               )}%">
                   <span class="absolute -top-6 left-1/2 -translate-x-1/2 text-xs bg-black text-white px-1 rounded opacity-0 group-hover:opacity-100 transition">${val}</span>
               </div>
@@ -788,7 +789,7 @@ function setupMapEvents(currentUser) {
                 days[i]
               }</span>
           </div>
-      `
+      `,
       )
       .join("");
   }
@@ -802,7 +803,7 @@ function setupMapEvents(currentUser) {
     try {
       const q = query(
         collection(db, `estabelecimentos/${localId}/reviews`),
-        orderBy("date", "desc")
+        orderBy("date", "desc"),
       );
       const snap = await getDocs(q);
 
@@ -843,7 +844,7 @@ window.abrirRota = (mode) => {
   // Google Maps URL Scheme
   window.open(
     `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}&travelmode=${mode}`,
-    "_blank"
+    "_blank",
   );
 };
 
@@ -884,7 +885,7 @@ function setupChatEvents() {
 
     chatMessages.insertAdjacentHTML(
       "beforeend",
-      `<div class="flex justify-end"><div class="bg-blue-100 p-3 rounded-lg rounded-tr-none text-blue-900 max-w-[85%] shadow-sm">${texto}</div></div>`
+      `<div class="flex justify-end"><div class="bg-blue-100 p-3 rounded-lg rounded-tr-none text-blue-900 max-w-[85%] shadow-sm">${texto}</div></div>`,
     );
     chatInput.value = "";
     chatMessages.scrollTop = chatMessages.scrollHeight;
@@ -892,7 +893,7 @@ function setupChatEvents() {
     const loadingId = "loading-" + Date.now();
     chatMessages.insertAdjacentHTML(
       "beforeend",
-      `<div id="${loadingId}" class="text-xs text-gray-400 animate-pulse ml-2">Digitando...</div>`
+      `<div id="${loadingId}" class="text-xs text-gray-400 animate-pulse ml-2">Digitando...</div>`,
     );
 
     try {
@@ -907,7 +908,7 @@ function setupChatEvents() {
 
       chatMessages.insertAdjacentHTML(
         "beforeend",
-        `<div class="bg-white dark:bg-gray-800 p-3 rounded-lg rounded-tl-none shadow-sm border border-gray-100 dark:border-gray-700 max-w-[90%]"><p class="text-blue-900 font-bold text-xs mb-1">🤖 Guia da Tijuca</p><p class="text-gray-700 dark:text-gray-300">${text}</p></div>`
+        `<div class="bg-white dark:bg-gray-800 p-3 rounded-lg rounded-tl-none shadow-sm border border-gray-100 dark:border-gray-700 max-w-[90%]"><p class="text-blue-900 font-bold text-xs mb-1">🤖 Guia da Tijuca</p><p class="text-gray-700 dark:text-gray-300">${text}</p></div>`,
       );
       chatMessages.scrollTop = chatMessages.scrollHeight;
     } catch (error) {
@@ -920,7 +921,7 @@ function setupChatEvents() {
           error.message.includes("404")
             ? "Modelo não encontrado. Verifique se a API 'Generative Language' está ativada no Google Cloud."
             : error.message
-        }</div>`
+        }</div>`,
       );
     }
   };
@@ -985,7 +986,7 @@ async function carregarAlertas() {
 
       // Atualiza mapa
       updateAlertsMap(snapshot.docs);
-    }
+    },
   );
 }
 
@@ -1044,7 +1045,7 @@ function updateAlertsMap(docs) {
             : ""
         }<b>${iconEmoji} ${d.tipo.toUpperCase()}</b><br>${
           d.descricao
-        }<br><small class="text-gray-400">Expira em 24h</small>`
+        }<br><small class="text-gray-400">Expira em 24h</small>`,
       );
   });
 }
